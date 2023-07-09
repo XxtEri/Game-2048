@@ -54,14 +54,110 @@
 		F32E640E2A5B10E40023AC5F /* Game2048 */ = {
 			isa = PBXGroup;
 			children = (
-				F32E640F2A5B10E40023AC5F /* AppDelegate.swift */,
-				F32E64112A5B10E40023AC5F /* SceneDelegate.swift */,
+				F32E642E2A5B16BE0023AC5F /* App */,
+				F32E642D2A5B16A00023AC5F /* Domain */,
+				F32E64232A5B15C10023AC5F /* Screens */,
 				F32E64132A5B10E40023AC5F /* ViewController.swift */,
-				F32E64182A5B10E50023AC5F /* Assets.xcassets */,
-				F32E641A2A5B10E50023AC5F /* LaunchScreen.storyboard */,
-				F32E641D2A5B10E50023AC5F /* Info.plist */,
+				F32E642F2A5B16C40023AC5F /* Resources */,
 			);
 			path = Game2048;
+			sourceTree = "<group>";
+		};
+		F32E64232A5B15C10023AC5F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F32E64302A5B16D20023AC5F /* LaunchScreen */,
+				F32E64242A5B15D10023AC5F /* GameScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F32E64242A5B15D10023AC5F /* GameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F32E64252A5B15D60023AC5F /* Presentation */,
+				F32E64262A5B15DC0023AC5F /* Domain */,
+			);
+			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		F32E64252A5B15D60023AC5F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F32E64262A5B15DC0023AC5F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F32E64292A5B162C0023AC5F /* Protocols */,
+				F32E64282A5B161A0023AC5F /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F32E64282A5B161A0023AC5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F32E64292A5B162C0023AC5F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F32E642A2A5B16330023AC5F /* UseCases */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F32E642A2A5B16330023AC5F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F32E642D2A5B16A00023AC5F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F32E642E2A5B16BE0023AC5F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F32E640F2A5B10E40023AC5F /* AppDelegate.swift */,
+				F32E64112A5B10E40023AC5F /* SceneDelegate.swift */,
+				F32E641D2A5B10E50023AC5F /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F32E642F2A5B16C40023AC5F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F32E64182A5B10E50023AC5F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F32E64302A5B16D20023AC5F /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F32E64312A5B16D80023AC5F /* Presentation */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		F32E64312A5B16D80023AC5F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F32E641A2A5B10E50023AC5F /* LaunchScreen.storyboard */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Game2048/Info.plist;
+				INFOPLIST_FILE = Game2048/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = 2048;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -310,7 +406,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Game2048/Info.plist;
+				INFOPLIST_FILE = Game2048/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = 2048;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
