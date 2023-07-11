@@ -75,14 +75,14 @@ private extension ScoreBlockView {
 	
 	func configureConstraints() {
 		titleBlockLabel.snp.makeConstraints { make in
-			make.top.equalToSuperview()
+			make.top.equalToSuperview().inset(2)
 			make.horizontalEdges.equalToSuperview().inset(5)
 		}
 		
 		scoreBlockLabel.snp.makeConstraints { make in
 			make.top.equalTo(titleBlockLabel.snp.bottom).offset(5)
 			make.horizontalEdges.equalToSuperview().inset(2)
-			make.bottom.equalToSuperview()
+			make.bottom.equalToSuperview().inset(2)
 		}
 	}
 }

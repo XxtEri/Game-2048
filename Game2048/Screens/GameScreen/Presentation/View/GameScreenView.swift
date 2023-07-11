@@ -24,7 +24,7 @@ class GameScreenView: UIView {
 		view.text = "2048"
 		view.textColor = R.color.text()
 		view.textAlignment = .center
-		view.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+		view.font = UIFont.systemFont(ofSize: 40, weight: .bold)
 		
 		return view
 	}()
