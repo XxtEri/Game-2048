@@ -10,13 +10,14 @@
 		F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E640F2A5B10E40023AC5F /* AppDelegate.swift */; };
 		F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E64112A5B10E40023AC5F /* SceneDelegate.swift */; };
 		F32E64142A5B10E40023AC5F /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E64132A5B10E40023AC5F /* GameScreenViewController.swift */; };
-		F32E64192A5B10E50023AC5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32E64182A5B10E50023AC5F /* Assets.xcassets */; };
+		F32E64192A5B10E50023AC5F /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32E64182A5B10E50023AC5F /* Image.xcassets */; };
 		F32E641C2A5B10E50023AC5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32E641A2A5B10E50023AC5F /* LaunchScreen.storyboard */; };
 		F3402AC02A5D351B00A84E3E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3402ABF2A5D351B00A84E3E /* SnapKit */; };
 		F3402AC22A5D363F00A84E3E /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC12A5D363F00A84E3E /* GameScreenView.swift */; };
 		F3402AC62A5D389600A84E3E /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC52A5D389600A84E3E /* GameFieldView.swift */; };
 		F3402AC92A5D3E1800A84E3E /* ScoreBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC82A5D3E1800A84E3E /* ScoreBlockView.swift */; };
 		F3402AD32A5D652600A84E3E /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F3402AD22A5D652600A84E3E /* RswiftLibrary */; };
+		F3402AD72A5D6A2000A84E3E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3402AD62A5D6A2000A84E3E /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +25,13 @@
 		F32E640F2A5B10E40023AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F32E64112A5B10E40023AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F32E64132A5B10E40023AC5F /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
-		F32E64182A5B10E50023AC5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F32E64182A5B10E50023AC5F /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		F32E641B2A5B10E50023AC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32E641D2A5B10E50023AC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3402AC12A5D363F00A84E3E /* GameScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenView.swift; sourceTree = "<group>"; };
 		F3402AC52A5D389600A84E3E /* GameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldView.swift; sourceTree = "<group>"; };
 		F3402AC82A5D3E1800A84E3E /* ScoreBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBlockView.swift; sourceTree = "<group>"; };
+		F3402AD62A5D6A2000A84E3E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 		F32E642F2A5B16C40023AC5F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F32E64182A5B10E50023AC5F /* Assets.xcassets */,
+				F32E64182A5B10E50023AC5F /* Image.xcassets */,
+				F3402AD62A5D6A2000A84E3E /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -264,8 +267,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3402AD72A5D6A2000A84E3E /* Colors.xcassets in Resources */,
 				F32E641C2A5B10E50023AC5F /* LaunchScreen.storyboard in Resources */,
-				F32E64192A5B10E50023AC5F /* Assets.xcassets in Resources */,
+				F32E64192A5B10E50023AC5F /* Image.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

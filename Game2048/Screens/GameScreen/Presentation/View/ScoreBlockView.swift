@@ -65,7 +65,10 @@ private extension ScoreBlockView {
 	}
 	
 	func configureUI() {
-		backgroundColor = .gray
+		layer.cornerRadius = 5
+		layer.masksToBounds = true
+		backgroundColor = R.color.scoreBlockBackground()
+		
 		addSubview(titleBlockLabel)
 		addSubview(scoreBlockLabel)
 	}

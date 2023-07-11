@@ -22,7 +22,7 @@ class GameScreenView: UIView {
 	private lazy var titleGameLabel: UILabel = {
 		let view = UILabel()
 		view.text = "2048"
-		view.textColor = .yellow
+		view.textColor = R.color.text()
 		view.textAlignment = .center
 		view.font = UIFont.systemFont(ofSize: 30, weight: .bold)
 		
@@ -43,21 +43,23 @@ class GameScreenView: UIView {
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
 		view.axis = .horizontal
-		view.spacing = 15
+		view.spacing = 20
 		
 		return view
 	}()
 	
 	private lazy var goBackStepButton: UIButton = {
 		let view = UIButton()
-		view.setImage(UIImage(systemName: "arrowshape.turn.up.left.fill"), for: .normal)
+		view.setImage(R.image.backStep(), for: .normal)
+		view.contentMode = .scaleAspectFit
 		
 		return view
 	}()
 	
 	private lazy var restartButton: UIButton = {
 		let view = UIButton()
-		view.setImage(UIImage(systemName: "arrow.triangle.2.circlepath", withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)), for: .normal)
+		view.setImage(R.image.restart(), for: .normal)
+		view.contentMode = .scaleAspectFit
 		
 		return view
 	}()
@@ -87,7 +89,7 @@ private extension GameScreenView {
 	}
 	
 	func configureUI() {
-		backgroundColor = .systemPink
+		backgroundColor = R.color.gameScreenBackground()
 		addSubview(titleGameLabel)
 		addSubview(gameScoreInformationStack)
 		addSubview(buttonsStack)
@@ -122,6 +124,14 @@ private extension GameScreenView {
 			make.top.equalTo(buttonsStack.snp.bottom).offset(25)
 			make.width.equalTo(gameFieldWidth)
 			make.height.equalTo(gameFieldHeight)
+		}
+		
+		goBackStepButton.snp.makeConstraints { make in
+			make.size.equalTo(30)
+		}
+		
+		restartButton.snp.makeConstraints { make in
+			make.size.equalTo(30)
 		}
 	}
 	

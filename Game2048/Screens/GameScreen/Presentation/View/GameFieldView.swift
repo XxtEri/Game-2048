@@ -34,7 +34,7 @@ class GameFieldView: UIView {
 	
 	private func createEmptyCellView() -> UIView {
 		let view = UIView()
-		view.backgroundColor = .systemPink
+		view.backgroundColor = R.color.cellGameFieldBackground()
 		view.layer.cornerRadius = 5
 		view.layer.masksToBounds = true
 
@@ -50,7 +50,7 @@ private extension GameFieldView {
 	}
 	
 	func configureUI() {
-		backgroundColor = .white
+		backgroundColor = R.color.gameFieldBackground()
 		layer.cornerRadius = 5
 		layer.masksToBounds = true
 	}
