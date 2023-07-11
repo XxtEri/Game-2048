@@ -5,6 +5,8 @@
 //  Created by Елена on 11.07.2023.
 //
 
+import RswiftResources
+
 import UIKit
 import SnapKit
 

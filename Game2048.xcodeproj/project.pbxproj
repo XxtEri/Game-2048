@@ -16,6 +16,7 @@
 		F3402AC22A5D363F00A84E3E /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC12A5D363F00A84E3E /* GameScreenView.swift */; };
 		F3402AC62A5D389600A84E3E /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC52A5D389600A84E3E /* GameFieldView.swift */; };
 		F3402AC92A5D3E1800A84E3E /* ScoreBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AC82A5D3E1800A84E3E /* ScoreBlockView.swift */; };
+		F3402AD32A5D652600A84E3E /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F3402AD22A5D652600A84E3E /* RswiftLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3402AC02A5D351B00A84E3E /* SnapKit in Frameworks */,
+				F3402AD32A5D652600A84E3E /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +50,7 @@
 			children = (
 				F32E640E2A5B10E40023AC5F /* Game2048 */,
 				F32E640D2A5B10E40023AC5F /* Products */,
+				F3402AD12A5D652600A84E3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +190,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F3402AD12A5D652600A84E3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,10 +211,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				F3402ACF2A5D64C800A84E3E /* PBXTargetDependency */,
 			);
 			name = Game2048;
 			packageProductDependencies = (
 				F3402ABF2A5D351B00A84E3E /* SnapKit */,
+				F3402AD22A5D652600A84E3E /* RswiftLibrary */,
 			);
 			productName = Game2048;
 			productReference = F32E640C2A5B10E40023AC5F /* Game2048.app */;
@@ -236,6 +248,7 @@
 			mainGroup = F32E64032A5B10E40023AC5F;
 			packageReferences = (
 				F3402ABE2A5D351B00A84E3E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F3402ACA2A5D647200A84E3E /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = F32E640D2A5B10E40023AC5F /* Products */;
 			projectDirPath = "";
@@ -273,6 +286,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3402ACF2A5D64C800A84E3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F3402ACE2A5D64C800A84E3E /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F32E641A2A5B10E50023AC5F /* LaunchScreen.storyboard */ = {
@@ -498,6 +518,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F3402ACA2A5D647200A84E3E /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -505,6 +533,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3402ABE2A5D351B00A84E3E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F3402ACE2A5D64C800A84E3E /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		F3402AD22A5D652600A84E3E /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3402ACA2A5D647200A84E3E /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
