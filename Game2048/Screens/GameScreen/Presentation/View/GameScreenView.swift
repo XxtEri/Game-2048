@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 
 class GameScreenView: UIView {
+	private enum Metrics {
+		static let gameGieldHorizontalInset: CGFloat = 10
+	}
+	
+	private let gameFieldWidth: CGFloat
+	private let gameFieldHeight: CGFloat
+	
 	// MARK: - Views
 	private lazy var titleGameLabel: UILabel = {
 		let view = UILabel()
@@ -54,9 +61,12 @@ class GameScreenView: UIView {
 	}()
 	
 	//game field
-	private lazy var gameField = UIView()
+	private lazy var gameField = GameFieldView(fieldWidth: gameFieldWidth, fieldHeight: gameFieldHeight)
 
 	init() {
+		gameFieldWidth =  UIScreen.main.bounds.width - 2 * Metrics.gameGieldHorizontalInset
+		gameFieldHeight = gameFieldWidth
+		
 		super.init(frame: .zero)
 		
 		setup()
@@ -105,11 +115,11 @@ private extension GameScreenView {
 			make.top.equalTo(gameScoreInformationStack.snp.bottom).offset(10)
 		}
 		
-		gameField.backgroundColor = .white
 		gameField.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(10)
 			make.top.equalTo(buttonsStack.snp.bottom).offset(25)
-			make.size.equalTo(400)
+			make.width.equalTo(gameFieldWidth)
+			make.height.equalTo(gameFieldHeight)
 		}
 	}
 	
