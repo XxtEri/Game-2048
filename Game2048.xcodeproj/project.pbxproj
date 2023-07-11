@@ -9,16 +9,17 @@
 /* Begin PBXBuildFile section */
 		F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E640F2A5B10E40023AC5F /* AppDelegate.swift */; };
 		F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E64112A5B10E40023AC5F /* SceneDelegate.swift */; };
-		F32E64142A5B10E40023AC5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E64132A5B10E40023AC5F /* ViewController.swift */; };
+		F32E64142A5B10E40023AC5F /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32E64132A5B10E40023AC5F /* GameScreenViewController.swift */; };
 		F32E64192A5B10E50023AC5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32E64182A5B10E50023AC5F /* Assets.xcassets */; };
 		F32E641C2A5B10E50023AC5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F32E641A2A5B10E50023AC5F /* LaunchScreen.storyboard */; };
+		F3402AC02A5D351B00A84E3E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3402ABF2A5D351B00A84E3E /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F32E640C2A5B10E40023AC5F /* Game2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32E640F2A5B10E40023AC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F32E64112A5B10E40023AC5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F32E64132A5B10E40023AC5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F32E64132A5B10E40023AC5F /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		F32E64182A5B10E50023AC5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32E641B2A5B10E50023AC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F32E641D2A5B10E50023AC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3402AC02A5D351B00A84E3E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +59,6 @@
 				F32E642E2A5B16BE0023AC5F /* App */,
 				F32E642D2A5B16A00023AC5F /* Domain */,
 				F32E64232A5B15C10023AC5F /* Screens */,
-				F32E64132A5B10E40023AC5F /* ViewController.swift */,
 				F32E642F2A5B16C40023AC5F /* Resources */,
 			);
 			path = Game2048;
@@ -84,6 +85,7 @@
 		F32E64252A5B15D60023AC5F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F32E64132A5B10E40023AC5F /* GameScreenViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -176,6 +178,9 @@
 			dependencies = (
 			);
 			name = Game2048;
+			packageProductDependencies = (
+				F3402ABF2A5D351B00A84E3E /* SnapKit */,
+			);
 			productName = Game2048;
 			productReference = F32E640C2A5B10E40023AC5F /* Game2048.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +209,9 @@
 				Base,
 			);
 			mainGroup = F32E64032A5B10E40023AC5F;
+			packageReferences = (
+				F3402ABE2A5D351B00A84E3E /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = F32E640D2A5B10E40023AC5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F32E64142A5B10E40023AC5F /* ViewController.swift in Sources */,
+				F32E64142A5B10E40023AC5F /* GameScreenViewController.swift in Sources */,
 				F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */,
 				F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */,
 			);
@@ -452,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3402ABE2A5D351B00A84E3E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3402ABF2A5D351B00A84E3E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3402ABE2A5D351B00A84E3E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F32E64042A5B10E40023AC5F /* Project object */;
 }
