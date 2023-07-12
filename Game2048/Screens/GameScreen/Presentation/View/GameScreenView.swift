@@ -136,6 +136,49 @@ private extension GameScreenView {
 	}
 	
 	func configureActions() {
+		setupLeftSwipe()
+		setupRightSwipe()
+		setupUpSwipe()
+		setupDownSwipe()
+	}
+	
+	// MARK: - Actions
+	@objc
+	func onSwipe(_ sender: UISwipeGestureRecognizer) {
 		
+	}
+}
+
+private extension GameScreenView {
+	func setupLeftSwipe() {
+		let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+		leftSwipe.numberOfTouchesRequired = 1
+		leftSwipe.direction = .left
+		
+		addGestureRecognizer(leftSwipe)
+	}
+	
+	func setupRightSwipe() {
+		let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+		rightSwipe.numberOfTouchesRequired = 1
+		rightSwipe.direction = .right
+		
+		addGestureRecognizer(rightSwipe)
+	}
+	
+	func setupUpSwipe() {
+		let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+		upSwipe.numberOfTouchesRequired = 1
+		upSwipe.direction = .up
+		
+		addGestureRecognizer(upSwipe)
+	}
+	
+	func setupDownSwipe() {
+		let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+		downSwipe.numberOfTouchesRequired = 1
+		downSwipe.direction = .down
+		
+		addGestureRecognizer(downSwipe)
 	}
 }

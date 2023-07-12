@@ -15,6 +15,8 @@ class GameFieldView: UIView {
 	private var cellWidth: CGFloat
 	private var cellHeight: CGFloat
 	private var cellsPadding: CGFloat
+	private var cellsGameField = [CellGameFieldView]()
+	private weak var swipeDelegate: SwipeDelegate?
 	
 	init(fieldWidth: CGFloat, fieldHeight: CGFloat) {
 		self.fieldWidth = fieldWidth
@@ -39,6 +41,10 @@ class GameFieldView: UIView {
 		view.layer.masksToBounds = true
 
 		return view
+	}
+	
+	func setSwipeDelegate(_ delegate: SwipeDelegate) {
+		swipeDelegate = delegate
 	}
 }
 
@@ -67,6 +73,57 @@ private extension GameFieldView {
 					make.height.equalTo(cellHeight)
 					make.width.equalTo(cellWidth)
 				}
+			}
+		}
+	}
+	
+	func configureCellConstraints(cell: CellGameFieldView) {
+		cell.removeFromSuperview()
+		
+		addSubview(cell)
+		
+		cell.snp.makeConstraints { make in
+			make.top.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.1) * (cellsPadding + cellHeight))
+			make.leading.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.0) * (cellsPadding + cellWidth))
+			make.width.equalTo(cellWidth)
+			make.height.equalTo(cellHeight)
+		}
+	}
+}
+
+// MARK: Взаимодействие с ячейками игрового поля
+extension GameFieldView {
+	func createNewCell() {
+		let cell = CellGameFieldView(number: ._2, position: (1, 1))
+		cellsGameField.append(cell)
+		
+	}
+	
+	func deleteAllCells() {
+		cellsGameField.forEach { cell in
+			cell.removeFromSuperview()
+		}
+	}
+	
+	private func createFirstCells() {
+		let startCells = [CellGameFieldView]()
+		for cell in startCells {
+			// todo: создать новую ячейку
+			// добавить на экран
+		}
+	}
+	
+	private func setupCell(_ cell: CellGameFieldView) {
+		cell.transform = CGAffineTransform(scaleX: 0, y: 0)
+		
+		addSubview(cell)
+		
+		UIView.animate(withDuration: 0.2, animations: { [ self ] in
+			cell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+			configureCellConstraints(cell: cell)
+		}) { _ in
+			UIView.animate(withDuration: 0.2) {
+				cell.transform = .identity
 			}
 		}
 	}
