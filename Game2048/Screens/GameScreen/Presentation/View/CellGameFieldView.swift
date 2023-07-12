@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 class CellGameFieldView: UIView {
-	var position: (Int, Int)
+	var position: CellPosition
+	var number: CellNumber
 	
 	private var id: UUID
-	private var number: CellNumber
 	private weak var appearanceProvider: AppearanceCellProviderProtocol?
 	
 	private lazy var numberLabel: UILabel = {
@@ -25,7 +25,7 @@ class CellGameFieldView: UIView {
 		return view
 	}()
 
-	init(number: CellNumber, position: (Int, Int), appearanceProvider: AppearanceCellProviderProtocol? = nil) {
+	init(number: CellNumber, position: CellPosition, appearanceProvider: AppearanceCellProviderProtocol? = nil) {
 		self.number = number
 		self.position = position
 		self.appearanceProvider = appearanceProvider
