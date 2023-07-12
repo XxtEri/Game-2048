@@ -83,8 +83,8 @@ private extension GameFieldView {
 		addSubview(cell)
 		
 		cell.snp.makeConstraints { make in
-			make.top.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.1) * (cellsPadding + cellHeight))
-			make.leading.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.0) * (cellsPadding + cellWidth))
+			make.top.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.y) * (cellsPadding + cellHeight))
+			make.leading.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.x) * (cellsPadding + cellWidth))
 			make.width.equalTo(cellWidth)
 			make.height.equalTo(cellHeight)
 		}
@@ -94,7 +94,7 @@ private extension GameFieldView {
 // MARK: Взаимодействие с ячейками игрового поля
 extension GameFieldView {
 	func createNewCell() {
-		let cell = CellGameFieldView(number: ._2, position: (1, 1))
+		let cell = CellGameFieldView(number: ._2, position: CellPosition(x: 1, y: 1))
 		cellsGameField.append(cell)
 		
 	}
