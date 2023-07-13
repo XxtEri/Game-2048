@@ -58,6 +58,39 @@ private extension GameScreenViewController {
 			}
 		}
 		
+		ui.onSwipeDown = { [ weak self ] in
+			guard let self = self else { return }
+			
+			if self.viewModel.changeCellsOnSwipe(swipeType: .down, cells: &ui.gameField.cells) {
+				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: ui.gameField.cells)
+				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
+				
+				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+			}
+		}
+		
+		ui.onSwipeLeft = { [ weak self ] in
+			guard let self = self else { return }
+			
+			if self.viewModel.changeCellsOnSwipe(swipeType: .left, cells: &ui.gameField.cells) {
+				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: ui.gameField.cells)
+				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
+				
+				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+			}
+		}
+		
+		ui.onSwipeRight = { [ weak self ] in
+			guard let self = self else { return }
+			
+			if self.viewModel.changeCellsOnSwipe(swipeType: .right, cells: &ui.gameField.cells) {
+				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: ui.gameField.cells)
+				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
+				
+				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+			}
+		}
+		
 		ui.updateScore = { [ weak self ] score in
 			guard let self = self else { return }
 			
