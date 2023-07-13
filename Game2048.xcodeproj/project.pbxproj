@@ -144,6 +144,7 @@
 		F32E64262A5B15DC0023AC5F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F3402B1A2A600B8E00A84E3E /* Heplers */,
 				F3402B052A5EBC4700A84E3E /* UseCases */,
 				F3402B012A5EB99500A84E3E /* Managers */,
 				F32E64292A5B162C0023AC5F /* Protocols */,
@@ -243,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				F3402AE02A5DCE1200A84E3E /* AppearanceCellProviderProtocol.swift */,
-				F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -308,6 +308,14 @@
 				F3402B0E2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F3402B1A2A600B8E00A84E3E /* Heplers */ = {
+			isa = PBXGroup;
+			children = (
+				F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */,
+			);
+			path = Heplers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
