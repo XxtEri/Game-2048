@@ -18,6 +18,8 @@ class GameFieldView: UIView {
 	private var cellsGameField = [CellGameFieldView]()
 	private weak var swipeDelegate: SwipeDelegate?
 	
+	var cells: [CellGameFieldView] = []
+	
 	init(fieldWidth: CGFloat, fieldHeight: CGFloat) {
 		self.fieldWidth = fieldWidth
 		self.fieldHeight = fieldHeight

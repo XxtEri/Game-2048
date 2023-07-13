@@ -11,6 +11,12 @@ import UIKit
 import SnapKit
 
 class GameScreenView: UIView {
+	// MARK: - Handlers
+	var onSwipeUp: (([CellGameFieldView]) -> Void)?
+	var onSwipeDown: (([CellGameFieldView]) -> Void)?
+	var onSwipeLeft: (([CellGameFieldView]) -> Void)?
+	var onSwipeRight: (([CellGameFieldView]) -> Void)?
+	
 	private enum Metrics {
 		static let gameGieldHorizontalInset: CGFloat = 10
 	}
@@ -145,7 +151,25 @@ private extension GameScreenView {
 	// MARK: - Actions
 	@objc
 	func onSwipe(_ sender: UISwipeGestureRecognizer) {
+		let cells = gameField.cells.map {
+			let number: CellNumber = $0.number
+			let position: CellPosition = $0.position
+			
+			return CellGameFieldView(number: number, position: position)
+		}
 		
+		switch sender.direction {
+		case .up:
+			onSwipeUp?(cells)
+		case .down:
+			onSwipeDown?(cells)
+		case .left:
+			onSwipeLeft?(cells)
+		case .right:
+			onSwipeRight?(cells)
+		default:
+			break
+		}
 	}
 }
 

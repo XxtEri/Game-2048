@@ -35,6 +35,7 @@
 		F3402B0F2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B0E2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift */; };
 		F3402B122A5EC0E000A84E3E /* SwipeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B112A5EC0E000A84E3E /* SwipeType.swift */; };
 		F3402B152A5EC52100A84E3E /* CellPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B142A5EC52100A84E3E /* CellPosition.swift */; };
+		F3402B182A5FF69C00A84E3E /* AppearanceCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		F3402B0E2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCellNumberByNumberUseCase.swift; sourceTree = "<group>"; };
 		F3402B112A5EC0E000A84E3E /* SwipeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeType.swift; sourceTree = "<group>"; };
 		F3402B142A5EC52100A84E3E /* CellPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPosition.swift; sourceTree = "<group>"; };
+		F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceCellProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				F3402AE02A5DCE1200A84E3E /* AppearanceCellProviderProtocol.swift */,
+				F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				F3402AE12A5DCE1200A84E3E /* AppearanceCellProviderProtocol.swift in Sources */,
 				F3402AF72A5EB89700A84E3E /* MainRouter.swift in Sources */,
+				F3402B182A5FF69C00A84E3E /* AppearanceCellProvider.swift in Sources */,
 				F3402AFB2A5EB8C000A84E3E /* MainRouterProtocol.swift in Sources */,
 				F3402AE92A5EB0CB00A84E3E /* SwipeDelegate.swift in Sources */,
 				F3402AE32A5DCE6400A84E3E /* CellNumber.swift in Sources */,
