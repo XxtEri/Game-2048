@@ -21,6 +21,7 @@ final class ScreenFactory {
 	private let getMergeCellsUseCase: GetMergeCellsUseCase
 	private let getCellNumberByNumberUseCase: GetCellNumberByNumberUseCase
 	private let configureCellUseCase: ConfigureCellUseCase
+	private let generateCellWithRandomData: GenerateCellWithRandomData
 	
 	init() {
 		appearanceCellProvider = AppearanceCellProvider()
@@ -31,6 +32,7 @@ final class ScreenFactory {
 		getMergedIndexCellsUseCase = GetMergeIndexCellsUseCase()
 		getMergeCellsUseCase = GetMergeCellsUseCase()
 		configureCellUseCase = ConfigureCellUseCase(appearanceCellProvider: appearanceCellProvider)
+		generateCellWithRandomData = GenerateCellWithRandomData(configureCellUseCase: configureCellUseCase)
 	}
 }
 
@@ -42,7 +44,8 @@ extension ScreenFactory: ScreenFactoryProtocol {
 											changeCellsOnSwipeUseCase: changeCellsOnSwipeUseCase,
 											configureCellUseCase: configureCellUseCase,
 											getMergedIndexCellsUseCase: getMergedIndexCellsUseCase,
-											getMergeCellsUseCase: getMergeCellsUseCase)
+											getMergeCellsUseCase: getMergeCellsUseCase,
+											generateCellWithRandomData: generateCellWithRandomData)
 		let viewController = GameScreenViewController(viewModel: viewModel)
 		
 		return viewController

@@ -39,6 +39,7 @@
 		F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */; };
 		F3402B242A6018BE00A84E3E /* GetMergeCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */; };
 		F3402B282A602B8600A84E3E /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B272A602B8600A84E3E /* ScreenFactory.swift */; };
+		F3402B302A603A7000A84E3E /* GenerateCellWithRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeIndexCellsUseCase.swift; sourceTree = "<group>"; };
 		F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeCellsUseCase.swift; sourceTree = "<group>"; };
 		F3402B272A602B8600A84E3E /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCellWithRandomData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,6 @@
 			children = (
 				F32E642E2A5B16BE0023AC5F /* App */,
 				F32E642D2A5B16A00023AC5F /* Domain */,
-				F3402B262A602B7800A84E3E /* Factory */,
 				F32E64232A5B15C10023AC5F /* Screens */,
 				F32E642F2A5B16C40023AC5F /* Resources */,
 			);
@@ -182,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				F3402AF52A5EB88D00A84E3E /* Router */,
+				F3402B262A602B7800A84E3E /* Services */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -315,6 +317,7 @@
 				F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */,
 				F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */,
 				F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */,
+				F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -327,12 +330,12 @@
 			path = Heplers;
 			sourceTree = "<group>";
 		};
-		F3402B262A602B7800A84E3E /* Factory */ = {
+		F3402B262A602B7800A84E3E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				F3402B272A602B8600A84E3E /* ScreenFactory.swift */,
 			);
-			path = Factory;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +442,7 @@
 				F3402AFD2A5EB8DD00A84E3E /* GameScreenRouter.swift in Sources */,
 				F3402B0C2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift in Sources */,
 				F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */,
+				F3402B302A603A7000A84E3E /* GenerateCellWithRandomData.swift in Sources */,
 				F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */,
 				F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */,
 				F3402B0F2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift in Sources */,

@@ -7,7 +7,7 @@
 
 protocol ActionGameProtocol {
 	func generateStartCells() -> [CellGameFieldView]
-//	func generateNewCellWithRandomData() -> CellGameFieldView
+	func generateNewCellWithRandomData(cells: [CellGameFieldView]) -> CellGameFieldView?
 	func configureCellWithData(number: CellNumber, position: CellPosition)  -> CellGameFieldView
 	
 	func fetchScore() -> Int

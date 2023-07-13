@@ -30,16 +30,6 @@ class GameScreenViewController: UIViewController {
 		createStartCells()
 	}
 	
-	private func moveAnimationCell() {
-		var mergeIndicicies = [Int]()
-		
-		view.isUserInteractionEnabled = false
-		
-//		UIView.animate(withDuration: 0.2) { [ self ] in
-//
-//		}
-	}
-	
 	private func createStartCells() {
 		var cells = ui.gameField.cells
 		let startCells = viewModel.generateStartCells()
@@ -50,17 +40,51 @@ class GameScreenViewController: UIViewController {
 			cells.append(curCell)
 		}
 		
-		ui.gameField.setCells(cells)
+		ui.gameField.cells = cells
+		ui.gameField.addCellToView()
 	}
 }
 
 private extension GameScreenViewController {
 	func setHandlers() {
-		ui.onSwipeUp = { [ weak self ] cells in
-			if ((self?.viewModel.changeCellsOnSwipe(swipeType: .up, cells: cells)) != nil) {
-				print("Up")
-				//Animation
+		ui.onSwipeUp = { [ weak self ] in
+			guard let self = self else { return }
+			
+			let newCells = self.viewModel.changeCellsOnSwipe(swipeType: .up, cells: &ui.gameField.cells)
+			
+			if !newCells.isEmpty {
+				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: newCells)
+				let mergeCells = self.viewModel.getMergeCells(cells: newCells)
+				
+				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
 			}
+		}
+		
+		ui.updateScore = { [ weak self ] score in
+			guard let self = self else { return }
+			
+			self.viewModel.saveScore(score)
+			self.viewModel.saveMaxScore(score)
+		}
+		
+		ui.gameField.getRandomCell = { [ weak self ] cells in
+			self?.viewModel.generateNewCellWithRandomData(cells: cells) ?? nil
+		}
+		
+		ui.gameField.getAppearanceProvider = { [ weak self ] in
+			self?.viewModel.appearanceCellProvider ?? nil
+		}
+		
+		viewModel.updateScoreInView = { [ weak self ] score in
+			guard let self = self else { return }
+			
+			self.ui.setScore(score)
+		}
+		
+		viewModel.updateMaxScoreInView = { [ weak self ] score in
+			guard let self = self else { return }
+			
+			self.ui.setMaxScore(score)
 		}
 	}
 }

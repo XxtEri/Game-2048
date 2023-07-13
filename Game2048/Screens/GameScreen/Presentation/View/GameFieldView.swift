@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 
 class GameFieldView: UIView {
+	// MARK: - Handlers
+	var  updateScoreHandler: ((Int) -> Void)?
+	var getAppearanceProvider: (() -> AppearanceCellProviderProtocol?)?
+	var getRandomCell: (([CellGameFieldView]) -> CellGameFieldView?)?
+	
+	var cells = [CellGameFieldView]()
+	
 	private var countCell = 4
 	private var fieldWidth: CGFloat
 	private var fieldHeight: CGFloat
@@ -17,8 +24,6 @@ class GameFieldView: UIView {
 	private var cellsPadding: CGFloat
 	private var cellsGameField = [CellGameFieldView]()
 	private weak var swipeDelegate: SwipeDelegate?
-	
-	var cells: [CellGameFieldView] = []
 	
 	init(fieldWidth: CGFloat, fieldHeight: CGFloat) {
 		self.fieldWidth = fieldWidth
@@ -49,10 +54,34 @@ class GameFieldView: UIView {
 		swipeDelegate = delegate
 	}
 	
-	func setCells(_ cells: [CellGameFieldView]) {
-		self.cells = cells
-		
+	func addCellToView() {
 		setupCells()
+	}
+	
+	func moveCellsWithAnimation(mergeIndicies: [Int], mergeCells: [CellGameFieldView]) {
+		self.isUserInteractionEnabled = false
+		
+		UIView.animate(withDuration: 0.2, animations: { [ self ] in
+			for mergeCell in mergeCells {
+				addCell(mergeCell)
+			}
+			
+			for i in 0..<cells.count {
+				configureCellConstraints(cell: cells[i])
+			}
+			
+			self.layoutIfNeeded()
+			
+		}) { [ weak self ] _ in
+			for i in mergeIndicies.sorted().reversed() {
+				self?.cells[i].removeFromSuperview()
+				self?.cells.remove(at: i)
+			}
+			
+			self?.setupRandomCell()
+		}
+		
+		self.isUserInteractionEnabled = true
 	}
 }
 
@@ -69,18 +98,30 @@ private extension GameFieldView {
 		}
 	}
 	
-	private func setupCell(_ cell: CellGameFieldView) {
+	func setupCell(_ cell: CellGameFieldView) {
 		cell.transform = CGAffineTransform(scaleX: 0, y: 0)
 		
 		addSubview(cell)
 		
 		UIView.animate(withDuration: 0.27, animations: { [ self ] in
 			cell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-			configureCellConstraints(cell: cell)
+			cell.snp.makeConstraints { make in
+				make.top.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.y) * (cellsPadding + cellHeight))
+				make.leading.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.x) * (cellsPadding + cellWidth))
+				make.width.equalTo(cellWidth)
+				make.height.equalTo(cellHeight)
+			}
 		}) { _ in
 			UIView.animate(withDuration: 0.2) {
 				cell.transform = .identity
 			}
+		}
+	}
+	
+	func setupRandomCell() {
+		if let newCell = getRandomCell?(cells) {
+			cells.append(newCell)
+			setupCell(newCell)
 		}
 	}
 	
@@ -108,9 +149,8 @@ private extension GameFieldView {
 	
 	func configureCellConstraints(cell: CellGameFieldView) {
 		cell.removeFromSuperview()
-		
 		addSubview(cell)
-		
+
 		cell.snp.makeConstraints { make in
 			make.top.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.y) * (cellsPadding + cellHeight))
 			make.leading.equalToSuperview().inset(cellsPadding + CGFloat(cell.position.x) * (cellsPadding + cellWidth))
@@ -122,6 +162,15 @@ private extension GameFieldView {
 
 // MARK: Взаимодействие с ячейками игрового поля
 extension GameFieldView {
+	func addCell(_ cell: CellGameFieldView) {
+		updateScoreHandler?(cell.number.rawValue)
+		
+		if let appearanceProvider = getAppearanceProvider?() {
+			cell.setAppearanceCellProvider(appearanceProvider)
+			setupCell(cell)
+		}
+	}
+	
 	func deleteAllCells() {
 		cellsGameField.forEach { cell in
 			cell.removeFromSuperview()

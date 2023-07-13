@@ -12,10 +12,11 @@ import SnapKit
 
 class GameScreenView: UIView {
 	// MARK: - Handlers
-	var onSwipeUp: (([CellGameFieldView]) -> Void)?
-	var onSwipeDown: (([CellGameFieldView]) -> Void)?
-	var onSwipeLeft: (([CellGameFieldView]) -> Void)?
-	var onSwipeRight: (([CellGameFieldView]) -> Void)?
+	var onSwipeUp: (() -> Void)?
+	var onSwipeDown: (() -> Void)?
+	var onSwipeLeft: (() -> Void)?
+	var onSwipeRight: (() -> Void)?
+	var updateScore: ((Int) -> Void)?
 	
 	private enum Metrics {
 		static let gameGieldHorizontalInset: CGFloat = 10
@@ -45,8 +46,8 @@ class GameScreenView: UIView {
 		return view
 	}()
 	
-	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE", score: 234)
-	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST", score: 2048)
+	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE", score: 0)
+	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST", score: 0)
 	
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
@@ -79,14 +80,19 @@ class GameScreenView: UIView {
 		super.init(frame: .zero)
 		
 		setup()
+		setHandlers()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func createStartCells() {
-		
+	func setScore(_ score: Int) {
+		scoreInformationLabel.setScore(score)
+	}
+	
+	func setMaxScore(_ score: Int) {
+		bestScoreInformationLabel.setScore(score)
 	}
 }
 
@@ -159,22 +165,15 @@ private extension GameScreenView {
 	// MARK: - Actions
 	@objc
 	func onSwipe(_ sender: UISwipeGestureRecognizer) {
-		let cells = gameField.cells.map {
-			let number: CellNumber = $0.number
-			let position: CellPosition = $0.position
-			
-			return CellGameFieldView(number: number, position: position)
-		}
-		
 		switch sender.direction {
 		case .up:
-			onSwipeUp?(cells)
+			onSwipeUp?()
 		case .down:
-			onSwipeDown?(cells)
+			onSwipeDown?()
 		case .left:
-			onSwipeLeft?(cells)
+			onSwipeLeft?()
 		case .right:
-			onSwipeRight?(cells)
+			onSwipeRight?()
 		default:
 			break
 		}
@@ -212,5 +211,14 @@ private extension GameScreenView {
 		downSwipe.direction = .down
 		
 		addGestureRecognizer(downSwipe)
+	}
+}
+
+private extension GameScreenView {
+	func setHandlers() {
+		gameField.updateScoreHandler = { [ weak self ] score in
+			self?.scoreInformationLabel.addScore(score)
+			self?.updateScore?(score)
+		}
 	}
 }
