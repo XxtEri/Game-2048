@@ -17,7 +17,7 @@ class ScoreBlockView: UIView {
 		view.text = title
 		view.textColor = .white
 		view.textAlignment = .center
-		view.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+		view.font = UIFont.systemFont(ofSize: 20, weight: .regular)
 
 		return view
 	}()
@@ -27,7 +27,7 @@ class ScoreBlockView: UIView {
 		view.text = "\(score)"
 		view.textColor = .white
 		view.textAlignment = .center
-		view.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+		view.font = UIFont.systemFont(ofSize: 15, weight: .regular)
 		
 		return view
 	}()

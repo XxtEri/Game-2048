@@ -47,7 +47,7 @@ class GameScreenView: UIView {
 	}()
 	
 	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE", score: 0)
-	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST", score: 0)
+	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST SCORE", score: 0)
 	
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
@@ -141,7 +141,8 @@ private extension GameScreenView {
 		
 		gameField.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(10)
-			make.top.equalTo(buttonsStack.snp.bottom).offset(25)
+			make.top.greaterThanOrEqualTo(buttonsStack.snp.bottom).offset(20).priority(.high)
+			make.center.equalToSuperview().inset(10).priority(.low)
 			make.width.equalTo(gameFieldWidth)
 			make.height.equalTo(gameFieldHeight)
 		}
