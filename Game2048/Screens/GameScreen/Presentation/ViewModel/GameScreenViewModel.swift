@@ -44,7 +44,7 @@ final class GameScreenViewModel {
 		self.router = router
 	}
 	
-	func changeCellsOnSwipe(swipeType: SwipeType, cells: inout [CellGameFieldView]) -> [CellGameFieldView]{
+	func changeCellsOnSwipe(swipeType: SwipeType, cells: inout [CellGameFieldView]) -> Bool {
 		changeCellsOnSwipeUseCase.changeCellsOnSwipe(cells: &cells, swipeType: swipeType)
 	}
 	

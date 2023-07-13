@@ -50,11 +50,9 @@ private extension GameScreenViewController {
 		ui.onSwipeUp = { [ weak self ] in
 			guard let self = self else { return }
 			
-			let newCells = self.viewModel.changeCellsOnSwipe(swipeType: .up, cells: &ui.gameField.cells)
-			
-			if !newCells.isEmpty {
-				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: newCells)
-				let mergeCells = self.viewModel.getMergeCells(cells: newCells)
+			if self.viewModel.changeCellsOnSwipe(swipeType: .up, cells: &ui.gameField.cells) {
+				let mergeIndicies = self.viewModel.getMergeIndexCells(cells: ui.gameField.cells)
+				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
 			}

@@ -14,24 +14,24 @@ final class ChangeCellsOnSwipeUseCase {
 		self.countCellInRow = countCellInRow
 	}
 	
-	func changeCellsOnSwipe(cells: inout [CellGameFieldView], swipeType: SwipeType) -> [CellGameFieldView] {
+	func changeCellsOnSwipe(cells: inout [CellGameFieldView], swipeType: SwipeType) -> Bool {
 		var newCells = [CellGameFieldView]()
 		var mergeIndicies = [Int]()
-		var sortedCells = cells.sorted { $0.position.y < $1.position.y }
+		cells = cells.sorted { $0.position.y < $1.position.y }
 		
-		let startedCells = sortedCells.map({ $0.position })
+		let startedCells = cells.map({ $0.position })
 		
-		for i in 0..<sortedCells.count {
-			for j in i+1..<sortedCells.count {
-				if sortedCells[i].position.x == sortedCells[j].position.x &&
-					sortedCells[i].number == sortedCells[j].number &&
+		for i in 0..<cells.count {
+			for j in i+1..<cells.count {
+				if cells[i].position.x == cells[j].position.x &&
+					cells[i].number == cells[j].number &&
 					!mergeIndicies.contains(i) && !mergeIndicies.contains(j) {
 					var thereIsCellsBeetween = false
 					
-					for n in 0..<sortedCells.count {
-						if sortedCells[n].position.x == sortedCells[i].position.x &&
-							((sortedCells[n].position.y > sortedCells[i].position.y && sortedCells[n].position.y < sortedCells[j].position.y) ||
-							 (sortedCells[n].position.y < sortedCells[i].position.y && sortedCells[n].position.y > sortedCells[j].position.y)) {
+					for n in 0..<cells.count {
+						if cells[n].position.x == cells[i].position.x &&
+							((cells[n].position.y > cells[i].position.y && cells[n].position.y < cells[j].position.y) ||
+							 (cells[n].position.y < cells[i].position.y && cells[n].position.y > cells[j].position.y)) {
 							thereIsCellsBeetween = true
 						}
 					}
@@ -40,11 +40,11 @@ final class ChangeCellsOnSwipeUseCase {
 						break
 					}
 					
-					sortedCells[j].position.y = sortedCells[i].position.y
+					cells[j].position.y = cells[i].position.y
 					
 					mergeIndicies.append(contentsOf: [i, j])
 					
-					let newCell = CellGameFieldView(number: getCellNumberByNumberUseCase.getCellNumber(sortedCells[i].number.rawValue + sortedCells[j].number.rawValue), position: sortedCells[i].position)
+					let newCell = CellGameFieldView(number: getCellNumberByNumberUseCase.getCellNumber(cells[i].number.rawValue + cells[j].number.rawValue), position: cells[i].position)
 					newCells.append(newCell)
 					
 					break
@@ -54,13 +54,13 @@ final class ChangeCellsOnSwipeUseCase {
 		
 		switch swipeType {
 		case .up:
-			return moveCellsUp(newCells: newCells, mergeIndicies: mergeIndicies, cells: &sortedCells, startedCells: startedCells)
+			return moveCellsUp(newCells: newCells, mergeIndicies: mergeIndicies, cells: &cells, startedCells: startedCells)
 		case .down:
-			return []
+			return false
 		case .left:
-			return []
+			return false
 		case .right:
-			return []
+			return false
 		}
 	}
 }
@@ -69,7 +69,7 @@ private extension ChangeCellsOnSwipeUseCase {
 	func moveCellsUp(newCells: [CellGameFieldView],
 					 mergeIndicies: [Int],
 					 cells: inout [CellGameFieldView],
-					 startedCells: [CellPosition]) -> [CellGameFieldView] {
+					 startedCells: [CellPosition]) -> Bool {
 		var movedCells = [Int]()
 		for i in 0..<cells.count {
 			if movedCells.contains(i) {
@@ -149,16 +149,16 @@ private extension ChangeCellsOnSwipeUseCase {
 		cells.append(contentsOf: newCells)
 		
 		if cells.count != startedCells.count {
-			return cells
+			return true
 		} else {
 			for i in 0..<cells.count {
 				if cells[i].position.x != startedCells[i].x || cells[i].position.y != startedCells[i].y {
-					return cells
+					return true
 				}
 			}
 		}
 		
-		return []
+		return false
 	}
 	
 	//	func moveCellsDown(newCells: [CellGameFieldView],
