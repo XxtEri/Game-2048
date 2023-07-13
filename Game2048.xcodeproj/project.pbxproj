@@ -36,6 +36,9 @@
 		F3402B152A5EC52100A84E3E /* CellPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B142A5EC52100A84E3E /* CellPosition.swift */; };
 		F3402B182A5FF69C00A84E3E /* AppearanceCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */; };
 		F3402B1E2A6010C500A84E3E /* ConfigureCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */; };
+		F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */; };
+		F3402B242A6018BE00A84E3E /* GetMergeCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */; };
+		F3402B282A602B8600A84E3E /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B272A602B8600A84E3E /* ScreenFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		F3402B142A5EC52100A84E3E /* CellPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPosition.swift; sourceTree = "<group>"; };
 		F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceCellProvider.swift; sourceTree = "<group>"; };
 		F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCellUseCase.swift; sourceTree = "<group>"; };
+		F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeIndexCellsUseCase.swift; sourceTree = "<group>"; };
+		F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeCellsUseCase.swift; sourceTree = "<group>"; };
+		F3402B272A602B8600A84E3E /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 			children = (
 				F32E642E2A5B16BE0023AC5F /* App */,
 				F32E642D2A5B16A00023AC5F /* Domain */,
+				F3402B262A602B7800A84E3E /* Factory */,
 				F32E64232A5B15C10023AC5F /* Screens */,
 				F32E642F2A5B16C40023AC5F /* Resources */,
 			);
@@ -306,6 +313,8 @@
 				F3402B0B2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift */,
 				F3402B0E2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift */,
 				F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */,
+				F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */,
+				F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -316,6 +325,14 @@
 				F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */,
 			);
 			path = Heplers;
+			sourceTree = "<group>";
+		};
+		F3402B262A602B7800A84E3E /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				F3402B272A602B8600A84E3E /* ScreenFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3402AE12A5DCE1200A84E3E /* AppearanceCellProviderProtocol.swift in Sources */,
+				F3402B242A6018BE00A84E3E /* GetMergeCellsUseCase.swift in Sources */,
 				F3402AF72A5EB89700A84E3E /* MainRouter.swift in Sources */,
 				F3402B182A5FF69C00A84E3E /* AppearanceCellProvider.swift in Sources */,
 				F3402AFB2A5EB8C000A84E3E /* MainRouterProtocol.swift in Sources */,
@@ -414,6 +432,7 @@
 				F3402AFF2A5EB8E500A84E3E /* GameScreenRouterProtocol.swift in Sources */,
 				F3402B152A5EC52100A84E3E /* CellPosition.swift in Sources */,
 				F3402ADD2A5DCD6100A84E3E /* CellGameFieldView.swift in Sources */,
+				F3402B282A602B8600A84E3E /* ScreenFactory.swift in Sources */,
 				F3402B032A5EB99E00A84E3E /* ScoreManager.swift in Sources */,
 				F3402B122A5EC0E000A84E3E /* SwipeType.swift in Sources */,
 				F3402AC62A5D389600A84E3E /* GameFieldView.swift in Sources */,
@@ -421,6 +440,7 @@
 				F3402B0C2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift in Sources */,
 				F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */,
 				F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */,
+				F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */,
 				F3402B0F2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
