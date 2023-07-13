@@ -20,7 +20,7 @@ class CellGameFieldView: UIView {
 		view.text = "\(number.rawValue)"
 		view.textColor = appearanceProvider?.getCellFontColor(for: number)
 		view.textAlignment = .center
-		view.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+		view.font = UIFont.systemFont(ofSize: 40, weight: .medium)
 		
 		return view
 	}()

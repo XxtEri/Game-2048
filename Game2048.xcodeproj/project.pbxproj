@@ -24,7 +24,6 @@
 		F3402AE92A5EB0CB00A84E3E /* SwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AE82A5EB0CB00A84E3E /* SwipeDelegate.swift */; };
 		F3402AED2A5EB5A400A84E3E /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AEC2A5EB5A400A84E3E /* GameScreenViewModel.swift */; };
 		F3402AF02A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AEF2A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift */; };
-		F3402AF32A5EB78F00A84E3E /* ActionGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AF22A5EB78F00A84E3E /* ActionGameFactory.swift */; };
 		F3402AF72A5EB89700A84E3E /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AF62A5EB89700A84E3E /* MainRouter.swift */; };
 		F3402AFB2A5EB8C000A84E3E /* MainRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AFA2A5EB8C000A84E3E /* MainRouterProtocol.swift */; };
 		F3402AFD2A5EB8DD00A84E3E /* GameScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402AFC2A5EB8DD00A84E3E /* GameScreenRouter.swift */; };
@@ -36,6 +35,7 @@
 		F3402B122A5EC0E000A84E3E /* SwipeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B112A5EC0E000A84E3E /* SwipeType.swift */; };
 		F3402B152A5EC52100A84E3E /* CellPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B142A5EC52100A84E3E /* CellPosition.swift */; };
 		F3402B182A5FF69C00A84E3E /* AppearanceCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */; };
+		F3402B1E2A6010C500A84E3E /* ConfigureCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,6 @@
 		F3402AE82A5EB0CB00A84E3E /* SwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDelegate.swift; sourceTree = "<group>"; };
 		F3402AEC2A5EB5A400A84E3E /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
 		F3402AEF2A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionGameFactoryProtocol.swift; sourceTree = "<group>"; };
-		F3402AF22A5EB78F00A84E3E /* ActionGameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionGameFactory.swift; sourceTree = "<group>"; };
 		F3402AF62A5EB89700A84E3E /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		F3402AFA2A5EB8C000A84E3E /* MainRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterProtocol.swift; sourceTree = "<group>"; };
 		F3402AFC2A5EB8DD00A84E3E /* GameScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenRouter.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		F3402B112A5EC0E000A84E3E /* SwipeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeType.swift; sourceTree = "<group>"; };
 		F3402B142A5EC52100A84E3E /* CellPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPosition.swift; sourceTree = "<group>"; };
 		F3402B172A5FF69C00A84E3E /* AppearanceCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceCellProvider.swift; sourceTree = "<group>"; };
+		F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCellUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 		F32E64252A5B15D60023AC5F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F3402AEE2A5EB5BC00A84E3E /* Factory */,
+				F3402AEE2A5EB5BC00A84E3E /* Protocols */,
 				F3402AEB2A5EB59700A84E3E /* ViewModel */,
 				F3402AE72A5EB0B600A84E3E /* CustomDelegate */,
 				F3402AC32A5D387900A84E3E /* ViewController */,
@@ -264,13 +264,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F3402AEE2A5EB5BC00A84E3E /* Factory */ = {
+		F3402AEE2A5EB5BC00A84E3E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				F3402AEF2A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift */,
-				F3402AF22A5EB78F00A84E3E /* ActionGameFactory.swift */,
 			);
-			path = Factory;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F3402AF52A5EB88D00A84E3E /* Router */ = {
@@ -306,6 +305,7 @@
 				F3402B072A5EBC7900A84E3E /* GenerateStartCellsUseCase.swift */,
 				F3402B0B2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift */,
 				F3402B0E2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift */,
+				F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -406,6 +406,7 @@
 				F3402AE32A5DCE6400A84E3E /* CellNumber.swift in Sources */,
 				F3402B082A5EBC7900A84E3E /* GenerateStartCellsUseCase.swift in Sources */,
 				F3402AC22A5D363F00A84E3E /* GameScreenView.swift in Sources */,
+				F3402B1E2A6010C500A84E3E /* ConfigureCellUseCase.swift in Sources */,
 				F3402AED2A5EB5A400A84E3E /* GameScreenViewModel.swift in Sources */,
 				F3402AF02A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift in Sources */,
 				F3402AC92A5D3E1800A84E3E /* ScoreBlockView.swift in Sources */,
@@ -419,7 +420,6 @@
 				F3402AFD2A5EB8DD00A84E3E /* GameScreenRouter.swift in Sources */,
 				F3402B0C2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift in Sources */,
 				F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */,
-				F3402AF32A5EB78F00A84E3E /* ActionGameFactory.swift in Sources */,
 				F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */,
 				F3402B0F2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift in Sources */,
 			);

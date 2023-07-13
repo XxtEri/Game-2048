@@ -5,15 +5,15 @@
 //  Created by Елена on 12.07.2023.
 //
 
-protocol ActionGameFactoryProtocol {
+protocol ActionGameProtocol {
 	func generateStartCells() -> [CellGameFieldView]
-	func generateNewCellWithRandomData() -> CellGameFieldView
-	func generateNewCellWithData(number: CellNumber, position:(Int, Int))
+//	func generateNewCellWithRandomData() -> CellGameFieldView
+	func configureCellWithData(number: CellNumber, position: CellPosition)  -> CellGameFieldView
 	
 	func fetchScore() -> Int
 	func fetchMaxScore() -> Int
 	func saveScore(_ score: Int)
 	func saveMaxScore(_ score: Int)
 	
-	func saveGame(cells: [CellGameFieldView])
+//	func saveGame(cells: [CellGameFieldView])
 }

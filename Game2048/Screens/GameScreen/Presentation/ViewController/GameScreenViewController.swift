@@ -27,6 +27,7 @@ class GameScreenViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setHandlers()
+		createStartCells()
 	}
 	
 	private func moveAnimationCell() {
@@ -37,6 +38,19 @@ class GameScreenViewController: UIViewController {
 //		UIView.animate(withDuration: 0.2) { [ self ] in
 //
 //		}
+	}
+	
+	private func createStartCells() {
+		var cells = ui.gameField.cells
+		let startCells = viewModel.generateStartCells()
+		
+		for cell in startCells {
+			let curCell = viewModel.configureCellWithData(number: cell.number, position: cell.position)
+			
+			cells.append(curCell)
+		}
+		
+		ui.gameField.setCells(cells)
 	}
 }
 

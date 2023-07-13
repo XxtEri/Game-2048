@@ -13,7 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		let window = UIWindow(windowScene: windowScene)
-		let navigationController = UINavigationController(rootViewController: GameScreenViewController(viewModel: GameScreenViewModel(appearanceCellProvider: AppearanceCellProvider(), scoreManager: ScoreManager(), changeCellsOnSwipeUseCase: ChangeCellsOnSwipeUseCase(getCellNumberByNumberUseCase: GetCellNumberByNumberUseCase(), countCellInRow: 4))))
+		
+		let appearance = AppearanceCellProvider()
+		let navigationController = UINavigationController(rootViewController: GameScreenViewController(viewModel: GameScreenViewModel(appearanceCellProvider: appearance, scoreManager: ScoreManager(), generateStartCellsUseCase: GenerateStartCellsUseCase(appearanceCellProvider: appearance), changeCellsOnSwipeUseCase: ChangeCellsOnSwipeUseCase(getCellNumberByNumberUseCase: GetCellNumberByNumberUseCase(), countCellInRow: 4), configureCellUseCase: ConfigureCellUseCase(appearanceCellProvider: appearance))))
 		
 		window.rootViewController = navigationController
 		

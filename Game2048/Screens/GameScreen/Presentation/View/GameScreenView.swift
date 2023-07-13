@@ -25,6 +25,8 @@ class GameScreenView: UIView {
 	private let gameFieldHeight: CGFloat
 	
 	// MARK: - Views
+	lazy var gameField = GameFieldView(fieldWidth: gameFieldWidth, fieldHeight: gameFieldHeight)
+	
 	private lazy var titleGameLabel: UILabel = {
 		let view = UILabel()
 		view.text = "2048"
@@ -69,9 +71,6 @@ class GameScreenView: UIView {
 		
 		return view
 	}()
-	
-	//game field
-	private lazy var gameField = GameFieldView(fieldWidth: gameFieldWidth, fieldHeight: gameFieldHeight)
 
 	init() {
 		gameFieldWidth =  UIScreen.main.bounds.width - 2 * Metrics.gameGieldHorizontalInset
@@ -85,8 +84,13 @@ class GameScreenView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	private func createStartCells() {
+		
+	}
 }
 
+// MARK: - Setup extension
 private extension GameScreenView {
 	func setup() {
 		configureUI()
@@ -106,6 +110,10 @@ private extension GameScreenView {
 		
 		buttonsStack.addArrangedSubview(goBackStepButton)
 		buttonsStack.addArrangedSubview(restartButton)
+	}
+	
+	func setupStartCells() {
+		
 	}
 	
 	func configureConstraints() {
