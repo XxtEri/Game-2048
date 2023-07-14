@@ -75,7 +75,7 @@ class GameScreenView: UIView {
 	
 	private lazy var nonActiveBackgroundView: UIView = {
 		let view = UIView()
-		view.backgroundColor = .gray
+		view.backgroundColor = .gray.withAlphaComponent(0.3)
 		
 		return view
 	}()
@@ -255,7 +255,7 @@ private extension GameScreenView {
 private extension GameScreenView {
 	func setHandlers() {
 		gameField.updateScoreHandler = { [ weak self ] score in
-			self?.scoreInformationLabel.addScore(score)
+			self?.scoreInformationLabel.addScore(score / 2)
 			self?.updateScore?(self?.scoreInformationLabel.score ?? 0)
 		}
 	}
