@@ -133,6 +133,7 @@ class GameScreenView: UIView {
 		gameEndLabel.removeFromSuperview()
 		nonActiveBackgroundView.removeFromSuperview()
 		
+		
 		gameField.swipeDelegate?.configureSwipes()
 	}
 }
@@ -152,6 +153,8 @@ private extension GameScreenView {
 		configureUI()
 		configureConstraints()
 		configureActions()
+		
+		gameField.setSwipeDelegate(self)
 	}
 	
 	func configureUI() {
