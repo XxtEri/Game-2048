@@ -13,6 +13,7 @@ class GameFieldView: UIView {
 	var  updateScoreHandler: ((Int) -> Void)?
 	var getAppearanceProvider: (() -> AppearanceCellProviderProtocol?)?
 	var getRandomCell: (([CellGameFieldView]) -> CellGameFieldView?)?
+	var checkStatusGame: (() -> Void)?
 	
 	var cells = [CellGameFieldView]()
 	
@@ -111,10 +112,12 @@ private extension GameFieldView {
 				make.width.equalTo(cellWidth)
 				make.height.equalTo(cellHeight)
 			}
-		}) { _ in
+		}) { [ self ] _ in
 			UIView.animate(withDuration: 0.2) {
 				cell.transform = .identity
 			}
+			
+			self.checkStatusGame?()
 		}
 	}
 	

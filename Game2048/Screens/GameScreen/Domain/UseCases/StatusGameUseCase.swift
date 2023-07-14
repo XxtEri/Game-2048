@@ -26,27 +26,31 @@ final class StatusGameUseCase {
 	
 	func checkPossibileMoves(cells: [CellGameFieldView]) -> Bool {
 		for cell in cells {
-			let row = cell.position.x
-			let column = cell.position.y
+			let x = cell.position.x
+			let y = cell.position.y
 			
-			if column < countCellInRow - 1 &&
-				(cells.first(where: { $0.position.x == row && $0.position.y == column + 1 }) == nil ||
-				 cells.contains(where: { $0.number == cell.number && $0.position.x == row && $0.position.y == column + 1 })) {
+			if x > 0 &&
+				(cells.first(where: { $0.position.x == x - 1 && $0.position.y == y }) == nil ||
+				 cells.contains(where: { $0.number == cell.number && $0.position.x == x - 1 && $0.position.y == y})) {
 				return true
-				
-			} else if row < countCellInRow - 1 &&
-						(cells.first(where: { $0.position.x == row + 1 && $0.position.y == column }) == nil ||
-						 cells.contains(where: { $0.number == cell.number && $0.position.x == row + 1 && $0.position.y == column })) {
+			}
+		
+			if y > 0 &&
+				(cells.first(where: { $0.position.x == x && $0.position.y == y - 1 }) == nil ||
+				 cells.contains(where: {$0.number == cell.number && $0.position.x == x && $0.position.y == y - 1})) {
 				return true
-				
-			} else if column > 0 &&
-						(cells.first(where: { $0.position.x == row && $0.position.y == column + 1 }) == nil ||
-						 cells.contains(where: { $0.number == cell.number && $0.position.x == row && $0.position.y == column - 1 })) {
+			}
+			
+			if x < countCellInRow - 1 &&
+				(cells.first(where: { $0.position.x == x + 1 && $0.position.y == y }) == nil ||
+				cells.contains(where: { $0.number == cell.number && $0.position.x == x + 1 && $0.position.y == y })){
 				return true
-				
-			} else if row > 0 &&
-						(cells.first(where: { $0.position.x == row - 1 && $0.position.y == column }) == nil ||
-						 cells.contains(where: { $0.number == cell.number && $0.position.x == row - 1 && $0.position.y == column })) {
+			}
+			
+			
+			if y < countCellInRow - 1 &&
+				(cells.first(where: { $0.position.x == x && $0.position.y == y + 1 }) == nil ||
+				 cells.contains(where: { $0.number == cell.number && $0.position.x == x && $0.position.y == y + 1 })) {
 				return true
 			}
 		}
@@ -58,11 +62,13 @@ final class StatusGameUseCase {
 		if checkPossibileMoves(cells: cells) {
 			return .playing
 			
-		} else if isGameWon(cells: cells) {
+		}
+		
+		if isGameWon(cells: cells) {
 			return .won
 			
-		} else {
-			return .lost
 		}
+		
+		return .lost
 	}
 }

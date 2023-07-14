@@ -33,6 +33,12 @@ class GameScreenViewController: UIViewController {
 		ui.setScore(viewModel.fetchMaxScore())
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		viewModel.saveScore(0)
+	}
+	
 	private func createStartCells() {
 		var cells = ui.gameField.cells
 		let startCells = viewModel.generateStartCells()
@@ -54,8 +60,10 @@ class GameScreenViewController: UIViewController {
 		case .playing:
 			break
 		case .won:
+			print("won")
 			ui.showGameEnd(message: "You won")
 		case .lost:
+			print("lost")
 			ui.showGameEnd(message: "You lost")
 		}
 	}
@@ -71,8 +79,6 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
-				
-				checkStatusGame()
 			}
 		}
 		
@@ -84,8 +90,6 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
-				
-				checkStatusGame()
 			}
 		}
 		
@@ -97,8 +101,6 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
-				
-				checkStatusGame()
 			}
 		}
 		
@@ -110,8 +112,6 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
-				
-				checkStatusGame()
 			}
 		}
 		
@@ -128,6 +128,10 @@ private extension GameScreenViewController {
 		
 		ui.gameField.getAppearanceProvider = { [ weak self ] in
 			self?.viewModel.appearanceCellProvider ?? nil
+		}
+		
+		ui.gameField.checkStatusGame = { [ weak self ] in
+			self?.checkStatusGame()
 		}
 		
 		viewModel.updateScoreInView = { [ weak self ] score in
