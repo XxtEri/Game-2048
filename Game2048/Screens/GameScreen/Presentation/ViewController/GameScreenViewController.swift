@@ -28,6 +28,9 @@ class GameScreenViewController: UIViewController {
 		super.viewDidLoad()
 		setHandlers()
 		createStartCells()
+		
+		ui.setScore(viewModel.fetchScore())
+		ui.setScore(viewModel.fetchMaxScore())
 	}
 	
 	private func createStartCells() {
@@ -43,6 +46,19 @@ class GameScreenViewController: UIViewController {
 		ui.gameField.cells = cells
 		ui.gameField.addCellToView()
 	}
+	
+	private func checkStatusGame() {
+		let status = viewModel.getGameStatus(cells: ui.gameField.cells)
+		
+		switch status {
+		case .playing:
+			break
+		case .won:
+			ui.showGameEnd(message: "You won")
+		case .lost:
+			ui.showGameEnd(message: "You lost")
+		}
+	}
 }
 
 private extension GameScreenViewController {
@@ -55,6 +71,8 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+				
+				checkStatusGame()
 			}
 		}
 		
@@ -66,6 +84,8 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+				
+				checkStatusGame()
 			}
 		}
 		
@@ -77,6 +97,8 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+				
+				checkStatusGame()
 			}
 		}
 		
@@ -88,6 +110,8 @@ private extension GameScreenViewController {
 				let mergeCells = self.viewModel.getMergeCells(cells: ui.gameField.cells)
 				
 				self.ui.gameField.moveCellsWithAnimation(mergeIndicies: mergeIndicies, mergeCells: mergeCells)
+				
+				checkStatusGame()
 			}
 		}
 		

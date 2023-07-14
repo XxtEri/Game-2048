@@ -15,5 +15,5 @@ protocol ActionGameProtocol {
 	func saveScore(_ score: Int)
 	func saveMaxScore(_ score: Int)
 	
-//	func saveGame(cells: [CellGameFieldView])
+	func getGameStatus(cells: [CellGameFieldView]) -> GameStatus
 }

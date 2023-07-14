@@ -39,7 +39,9 @@
 		F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */; };
 		F3402B242A6018BE00A84E3E /* GetMergeCellsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */; };
 		F3402B282A602B8600A84E3E /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B272A602B8600A84E3E /* ScreenFactory.swift */; };
-		F3402B302A603A7000A84E3E /* GenerateCellWithRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */; };
+		F3402B302A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift */; };
+		F3402B362A6123A000A84E3E /* StatusGameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B352A6123A000A84E3E /* StatusGameUseCase.swift */; };
+		F3402B392A61249800A84E3E /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B382A61249800A84E3E /* GameStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +77,9 @@
 		F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeIndexCellsUseCase.swift; sourceTree = "<group>"; };
 		F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMergeCellsUseCase.swift; sourceTree = "<group>"; };
 		F3402B272A602B8600A84E3E /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
-		F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCellWithRandomData.swift; sourceTree = "<group>"; };
+		F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCellWithRandomDataUseCase.swift; sourceTree = "<group>"; };
+		F3402B352A6123A000A84E3E /* StatusGameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusGameUseCase.swift; sourceTree = "<group>"; };
+		F3402B382A61249800A84E3E /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 				F3402AE22A5DCE6400A84E3E /* CellNumber.swift */,
 				F3402B112A5EC0E000A84E3E /* SwipeType.swift */,
 				F3402B142A5EC52100A84E3E /* CellPosition.swift */,
+				F3402B382A61249800A84E3E /* GameStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,7 +322,8 @@
 				F3402B1D2A6010C500A84E3E /* ConfigureCellUseCase.swift */,
 				F3402B202A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift */,
 				F3402B232A6018BE00A84E3E /* GetMergeCellsUseCase.swift */,
-				F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomData.swift */,
+				F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift */,
+				F3402B352A6123A000A84E3E /* StatusGameUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				F3402B1E2A6010C500A84E3E /* ConfigureCellUseCase.swift in Sources */,
 				F3402AED2A5EB5A400A84E3E /* GameScreenViewModel.swift in Sources */,
 				F3402AF02A5EB5D800A84E3E /* ActionGameFactoryProtocol.swift in Sources */,
+				F3402B362A6123A000A84E3E /* StatusGameUseCase.swift in Sources */,
 				F3402AC92A5D3E1800A84E3E /* ScoreBlockView.swift in Sources */,
 				F32E64142A5B10E40023AC5F /* GameScreenViewController.swift in Sources */,
 				F3402AFF2A5EB8E500A84E3E /* GameScreenRouterProtocol.swift in Sources */,
@@ -442,8 +449,9 @@
 				F3402AFD2A5EB8DD00A84E3E /* GameScreenRouter.swift in Sources */,
 				F3402B0C2A5EBFB600A84E3E /* ChangeCellsOnSwipeUseCase.swift in Sources */,
 				F32E64102A5B10E40023AC5F /* AppDelegate.swift in Sources */,
-				F3402B302A603A7000A84E3E /* GenerateCellWithRandomData.swift in Sources */,
+				F3402B302A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift in Sources */,
 				F32E64122A5B10E40023AC5F /* SceneDelegate.swift in Sources */,
+				F3402B392A61249800A84E3E /* GameStatus.swift in Sources */,
 				F3402B212A6016E800A84E3E /* GetMergeIndexCellsUseCase.swift in Sources */,
 				F3402B0F2A5EC00900A84E3E /* GetCellNumberByNumberUseCase.swift in Sources */,
 			);

@@ -5,7 +5,7 @@
 //  Created by Елена on 13.07.2023.
 //
 
-final class GenerateCellWithRandomData {
+final class GenerateCellWithRandomDataUseCase {
 	private let configureCellUseCase: ConfigureCellUseCase
 	
 	init(configureCellUseCase: ConfigureCellUseCase) {

@@ -32,7 +32,7 @@ class ScoreBlockView: UIView {
 		return view
 	}()
 	
-	init(title: String, score: Int) {
+	init(title: String, score: Int = 0) {
 		self.title = title
 		self.score = score
 		
@@ -46,15 +46,13 @@ class ScoreBlockView: UIView {
 	}
 	
 	func addScore(_ score: Int) {
-		let oldScore = Int(scoreBlockLabel.text ?? "0") ?? 0
-		
-		scoreBlockLabel.text = String(score + oldScore)
-		self.score += score
+		self.score = self.score + score
+		scoreBlockLabel.text = "\(self.score)"
 	}
 	
 	func setScore(_ score: Int) {
-		scoreBlockLabel.text = "\(score)"
 		self.score = score
+		scoreBlockLabel.text = "\(self.score)"
 	}
 }
 

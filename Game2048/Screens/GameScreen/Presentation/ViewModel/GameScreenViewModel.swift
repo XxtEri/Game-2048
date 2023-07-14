@@ -20,7 +20,8 @@ final class GameScreenViewModel {
 	private var configureCellUseCase: ConfigureCellUseCase
 	private var getMergedIndexCellsUseCase: GetMergeIndexCellsUseCase
 	private var getMergeCellsUseCase: GetMergeCellsUseCase
-	private var generateCellWithRandomData: GenerateCellWithRandomData
+	private var generateCellWithRandomDataUseCase: GenerateCellWithRandomDataUseCase
+	private var statusGameUseCase: StatusGameUseCase
 	
 	init(appearanceCellProvider: AppearanceCellProviderProtocol,
 		 scoreManager: ScoreManagerProtocol,
@@ -29,7 +30,8 @@ final class GameScreenViewModel {
 		 configureCellUseCase: ConfigureCellUseCase,
 		 getMergedIndexCellsUseCase: GetMergeIndexCellsUseCase,
 		 getMergeCellsUseCase: GetMergeCellsUseCase,
-		 generateCellWithRandomData: GenerateCellWithRandomData) {
+		 generateCellWithRandomDataUseCase: GenerateCellWithRandomDataUseCase,
+		 statusGameUseCase: StatusGameUseCase) {
 		self.appearanceCellProvider = appearanceCellProvider
 		self.scoreManager = scoreManager
 		self.generateStartCellsUseCase = generateStartCellsUseCase
@@ -37,7 +39,8 @@ final class GameScreenViewModel {
 		self.configureCellUseCase = configureCellUseCase
 		self.getMergedIndexCellsUseCase = getMergedIndexCellsUseCase
 		self.getMergeCellsUseCase = getMergeCellsUseCase
-		self.generateCellWithRandomData = generateCellWithRandomData
+		self.generateCellWithRandomDataUseCase = generateCellWithRandomDataUseCase
+		self.statusGameUseCase = statusGameUseCase
 	}
 	
 	func setRouter(_ router: GameScreenRouterProtocol) {
@@ -63,7 +66,7 @@ extension GameScreenViewModel: ActionGameProtocol {
 	}
 	
 	func generateNewCellWithRandomData(cells: [CellGameFieldView]) -> CellGameFieldView? {
-		generateCellWithRandomData.generate(cells: cells, countCellInRow: 4)
+		generateCellWithRandomDataUseCase.generate(cells: cells, countCellInRow: 4)
 	}
 	
 	func configureCellWithData(number: CellNumber, position: CellPosition) -> CellGameFieldView {
@@ -86,5 +89,9 @@ extension GameScreenViewModel: ActionGameProtocol {
 	func saveMaxScore(_ score: Int) {
 		scoreManager.saveMaxScore(score)
 		updateMaxScoreInView?(fetchMaxScore())
+	}
+	
+	func getGameStatus(cells: [CellGameFieldView]) -> GameStatus {
+		statusGameUseCase.getGameStatus(cells: cells)
 	}
 }

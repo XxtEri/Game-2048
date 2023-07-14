@@ -13,15 +13,19 @@ protocol ScreenFactoryProtocol {
 
 final class ScreenFactory {
 	private let countCellInRow = 4
+	private let numberWin = 2048
+	
 	private let appearanceCellProvider: AppearanceCellProviderProtocol
 	private let scoreManager: ScoreManagerProtocol
+	
 	private let generateStartCellsUseCase: GenerateStartCellsUseCase
 	private let changeCellsOnSwipeUseCase: ChangeCellsOnSwipeUseCase
 	private let getMergedIndexCellsUseCase: GetMergeIndexCellsUseCase
 	private let getMergeCellsUseCase: GetMergeCellsUseCase
 	private let getCellNumberByNumberUseCase: GetCellNumberByNumberUseCase
 	private let configureCellUseCase: ConfigureCellUseCase
-	private let generateCellWithRandomData: GenerateCellWithRandomData
+	private let generateCellWithRandomDataUseCase: GenerateCellWithRandomDataUseCase
+	private let statusGameUseCase:  StatusGameUseCase
 	
 	init() {
 		appearanceCellProvider = AppearanceCellProvider()
@@ -32,7 +36,8 @@ final class ScreenFactory {
 		getMergedIndexCellsUseCase = GetMergeIndexCellsUseCase()
 		getMergeCellsUseCase = GetMergeCellsUseCase()
 		configureCellUseCase = ConfigureCellUseCase(appearanceCellProvider: appearanceCellProvider)
-		generateCellWithRandomData = GenerateCellWithRandomData(configureCellUseCase: configureCellUseCase)
+		generateCellWithRandomDataUseCase = GenerateCellWithRandomDataUseCase(configureCellUseCase: configureCellUseCase)
+		statusGameUseCase = StatusGameUseCase(numberWin: numberWin, countCellInRow: countCellInRow)
 	}
 }
 
@@ -45,7 +50,8 @@ extension ScreenFactory: ScreenFactoryProtocol {
 											configureCellUseCase: configureCellUseCase,
 											getMergedIndexCellsUseCase: getMergedIndexCellsUseCase,
 											getMergeCellsUseCase: getMergeCellsUseCase,
-											generateCellWithRandomData: generateCellWithRandomData)
+											generateCellWithRandomDataUseCase: generateCellWithRandomDataUseCase,
+											statusGameUseCase: statusGameUseCase)
 		let viewController = GameScreenViewController(viewModel: viewModel)
 		
 		return viewController

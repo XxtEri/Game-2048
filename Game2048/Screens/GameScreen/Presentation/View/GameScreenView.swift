@@ -46,8 +46,8 @@ class GameScreenView: UIView {
 		return view
 	}()
 	
-	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE", score: 0)
-	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST SCORE", score: 0)
+	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE")
+	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST SCORE")
 	
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
@@ -69,6 +69,22 @@ class GameScreenView: UIView {
 		let view = UIButton()
 		view.setImage(R.image.restart(), for: .normal)
 		view.contentMode = .scaleAspectFit
+		
+		return view
+	}()
+	
+	private lazy var nonActiveBackgroundView: UIView = {
+		let view = UIView()
+		view.backgroundColor = .gray
+		
+		return view
+	}()
+	
+	private lazy var gameEndLabel: UILabel = {
+		let view = UILabel()
+		view.textColor = R.color.text()
+		view.textAlignment = .center
+		view.font = UIFont.systemFont(ofSize: 40, weight: .bold)
 		
 		return view
 	}()
@@ -94,6 +110,23 @@ class GameScreenView: UIView {
 	func setMaxScore(_ score: Int) {
 		bestScoreInformationLabel.setScore(score)
 	}
+	
+	func showGameEnd(message: String) {
+		gameEndLabel.text = message
+		
+		gameField.addSubview(nonActiveBackgroundView)
+		nonActiveBackgroundView.addSubview(gameEndLabel)
+		
+		nonActiveBackgroundView.snp.makeConstraints { make in
+			make.edges.equalToSuperview()
+		}
+		
+		gameEndLabel.snp.makeConstraints { make in
+			make.center.equalToSuperview()
+		}
+		
+		removeSwipeGectureRecognizers()
+	}
 }
 
 // MARK: - Setup extension
@@ -116,10 +149,6 @@ private extension GameScreenView {
 		
 		buttonsStack.addArrangedSubview(goBackStepButton)
 		buttonsStack.addArrangedSubview(restartButton)
-	}
-	
-	func setupStartCells() {
-		
 	}
 	
 	func configureConstraints() {
@@ -213,13 +242,21 @@ private extension GameScreenView {
 		
 		addGestureRecognizer(downSwipe)
 	}
+	
+	func removeSwipeGectureRecognizers() {
+		gestureRecognizers?.forEach({ gestureRecognizer in
+			if let swipe = gestureRecognizer as? UISwipeGestureRecognizer {
+				removeGestureRecognizer(swipe)
+			}
+		})
+	}
 }
 
 private extension GameScreenView {
 	func setHandlers() {
 		gameField.updateScoreHandler = { [ weak self ] score in
 			self?.scoreInformationLabel.addScore(score)
-			self?.updateScore?(score)
+			self?.updateScore?(self?.scoreInformationLabel.score ?? 0)
 		}
 	}
 }
