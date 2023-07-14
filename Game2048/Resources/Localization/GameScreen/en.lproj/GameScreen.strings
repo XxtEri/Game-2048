@@ -9,3 +9,5 @@
 "title_game" = "2048";
 "title_score_block" = "SCORE";
 "title_max_score_block" = "BEST SCORE";
+"won_message" = "You won";
+"lost_message" = "You lost";

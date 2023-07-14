@@ -9,3 +9,5 @@
 "title_game" = "2048";
 "title_score_block" = "СЧЕТ";
 "title_max_score_block" = "ЛУЧШИЙ СЧЕТ";
+"won_message" = "Вы выиграли";
+"lost_message" = "Вы проиграли";
