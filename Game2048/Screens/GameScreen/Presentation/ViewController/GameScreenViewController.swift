@@ -131,7 +131,20 @@ private extension GameScreenViewController {
 		}
 		
 		ui.gameField.checkStatusGame = { [ weak self ] in
-			self?.checkStatusGame()
+			guard let self = self else { return }
+			self.checkStatusGame()
+		}
+		
+		ui.restartButtonTappedHandler = { [ weak self ] in
+			guard let self = self else { return }
+			
+			ui.gameField.clearCells()
+			createStartCells()
+
+			ui.setScore(0)
+			viewModel.saveScore(0)
+
+			ui.restorePlay()
 		}
 		
 		viewModel.updateScoreInView = { [ weak self ] score in

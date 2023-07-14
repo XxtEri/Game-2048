@@ -59,16 +59,15 @@ final class StatusGameUseCase {
 	}
 	
 	func getGameStatus(cells: [CellGameFieldView]) -> GameStatus {
+		if isGameWon(cells: cells) {
+			return .won
+		}
+		
 		if checkPossibileMoves(cells: cells) {
 			return .playing
 			
 		}
-		
-		if isGameWon(cells: cells) {
-			return .won
-			
-		}
-		
+
 		return .lost
 	}
 }

@@ -17,6 +17,7 @@ class GameScreenView: UIView {
 	var onSwipeLeft: (() -> Void)?
 	var onSwipeRight: (() -> Void)?
 	var updateScore: ((Int) -> Void)?
+	var restartButtonTappedHandler: (() -> Void)?
 	
 	private enum Metrics {
 		static let gameGieldHorizontalInset: CGFloat = 10
@@ -127,6 +128,13 @@ class GameScreenView: UIView {
 		
 		removeSwipeGectureRecognizers()
 	}
+	
+	func restorePlay() {
+		gameEndLabel.removeFromSuperview()
+		nonActiveBackgroundView.removeFromSuperview()
+		
+		gameField.swipeDelegate?.setupSwipes()
+	}
 }
 
 // MARK: - Setup extension
@@ -190,6 +198,8 @@ private extension GameScreenView {
 		setupRightSwipe()
 		setupUpSwipe()
 		setupDownSwipe()
+		
+		restartButton.addTarget(self, action: #selector(restartButtonTapped(_:)), for: .touchUpInside)
 	}
 	
 	// MARK: - Actions
@@ -207,6 +217,11 @@ private extension GameScreenView {
 		default:
 			break
 		}
+	}
+	
+	@objc
+	func restartButtonTapped(_ sender: UIButton) {
+		restartButtonTappedHandler?()
 	}
 }
 

@@ -24,7 +24,7 @@ class GameFieldView: UIView {
 	private var cellHeight: CGFloat
 	private var cellsPadding: CGFloat
 	private var cellsGameField = [CellGameFieldView]()
-	private weak var swipeDelegate: SwipeDelegate?
+	private(set) weak var swipeDelegate: SwipeDelegate?
 	
 	init(fieldWidth: CGFloat, fieldHeight: CGFloat) {
 		self.fieldWidth = fieldWidth
@@ -178,5 +178,15 @@ extension GameFieldView {
 		cellsGameField.forEach { cell in
 			cell.removeFromSuperview()
 		}
+	}
+	
+	func clearCells() {
+		for subview in subviews {
+			if subview is CellGameFieldView {
+				subview.removeFromSuperview()
+			}
+		}
+		
+		cells = []
 	}
 }
