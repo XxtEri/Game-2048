@@ -58,13 +58,13 @@ class GameScreenView: UIView {
 		return view
 	}()
 	
-	private lazy var goBackStepButton: UIButton = {
-		let view = UIButton()
-		view.setImage(R.image.backStep(), for: .normal)
-		view.contentMode = .scaleAspectFit
-		
-		return view
-	}()
+//	private lazy var goBackStepButton: UIButton = {
+//		let view = UIButton()
+//		view.setImage(R.image.backStep(), for: .normal)
+//		view.contentMode = .scaleAspectFit
+//
+//		return view
+//	}()
 	
 	private lazy var restartButton: UIButton = {
 		let view = UIButton()
@@ -155,7 +155,7 @@ private extension GameScreenView {
 		gameScoreInformationStack.addArrangedSubview(scoreInformationLabel)
 		gameScoreInformationStack.addArrangedSubview(bestScoreInformationLabel)
 		
-		buttonsStack.addArrangedSubview(goBackStepButton)
+		//buttonsStack.addArrangedSubview(goBackStepButton)
 		buttonsStack.addArrangedSubview(restartButton)
 	}
 	
@@ -184,9 +184,9 @@ private extension GameScreenView {
 			make.height.equalTo(gameFieldHeight)
 		}
 		
-		goBackStepButton.snp.makeConstraints { make in
-			make.size.equalTo(30)
-		}
+//		goBackStepButton.snp.makeConstraints { make in
+//			make.size.equalTo(30)
+//		}
 		
 		restartButton.snp.makeConstraints { make in
 			make.size.equalTo(30)
