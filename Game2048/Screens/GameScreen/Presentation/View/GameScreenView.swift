@@ -133,7 +133,16 @@ class GameScreenView: UIView {
 		gameEndLabel.removeFromSuperview()
 		nonActiveBackgroundView.removeFromSuperview()
 		
-		gameField.swipeDelegate?.setupSwipes()
+		gameField.swipeDelegate?.configureSwipes()
+	}
+}
+
+extension GameScreenView: SwipeDelegate {
+	func configureSwipes() {
+		setupLeftSwipe()
+		setupRightSwipe()
+		setupUpSwipe()
+		setupDownSwipe()
 	}
 }
 
@@ -194,11 +203,7 @@ private extension GameScreenView {
 	}
 	
 	func configureActions() {
-		setupLeftSwipe()
-		setupRightSwipe()
-		setupUpSwipe()
-		setupDownSwipe()
-		
+		configureSwipes()
 		restartButton.addTarget(self, action: #selector(restartButtonTapped(_:)), for: .touchUpInside)
 	}
 	

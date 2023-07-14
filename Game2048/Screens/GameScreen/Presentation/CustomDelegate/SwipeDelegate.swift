@@ -6,5 +6,5 @@
 //
 
 protocol SwipeDelegate: AnyObject {
-	func setupSwipes()
+	func configureSwipes()
 }

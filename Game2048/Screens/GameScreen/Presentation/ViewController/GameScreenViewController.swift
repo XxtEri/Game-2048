@@ -60,11 +60,9 @@ class GameScreenViewController: UIViewController {
 		case .playing:
 			break
 		case .won:
-			print("won")
-			ui.showGameEnd(message: "You won")
+			ui.showGameEnd(message: R.string.gameScreen.won_message())
 		case .lost:
-			print("lost")
-			ui.showGameEnd(message: "You lost")
+			ui.showGameEnd(message: R.string.gameScreen.lost_message())
 		}
 	}
 }
