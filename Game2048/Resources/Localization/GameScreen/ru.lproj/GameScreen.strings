@@ -1,0 +1,11 @@
+/* 
+  GameScreen.strings
+  Game2048
+
+  Created by Елена on 14.07.2023.
+  
+*/
+
+"title_game" = "2048";
+"title_score_block" = "СЧЕТ";
+"title_max_score_block" = "ЛУЧШИЙ СЧЕТ";

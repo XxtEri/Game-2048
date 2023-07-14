@@ -42,6 +42,7 @@
 		F3402B302A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift */; };
 		F3402B362A6123A000A84E3E /* StatusGameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B352A6123A000A84E3E /* StatusGameUseCase.swift */; };
 		F3402B392A61249800A84E3E /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3402B382A61249800A84E3E /* GameStatus.swift */; };
+		F3402B442A61795300A84E3E /* GameScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3402B462A61795300A84E3E /* GameScreen.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,9 @@
 		F3402B2F2A603A7000A84E3E /* GenerateCellWithRandomDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCellWithRandomDataUseCase.swift; sourceTree = "<group>"; };
 		F3402B352A6123A000A84E3E /* StatusGameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusGameUseCase.swift; sourceTree = "<group>"; };
 		F3402B382A61249800A84E3E /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
+		F3402B422A61794C00A84E3E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F3402B452A61795300A84E3E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GameScreen.strings; sourceTree = "<group>"; };
+		F3402B472A61795700A84E3E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/GameScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 		F32E642F2A5B16C40023AC5F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3402B3D2A6178DA00A84E3E /* Localization */,
 				F32E64182A5B10E50023AC5F /* Image.xcassets */,
 				F3402AD62A5D6A2000A84E3E /* Colors.xcassets */,
 			);
@@ -344,6 +349,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F3402B3D2A6178DA00A84E3E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F3402B3E2A6178E200A84E3E /* GameScreen */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		F3402B3E2A6178E200A84E3E /* GameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3402B462A61795300A84E3E /* GameScreen.strings */,
+			);
+			path = GameScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -391,6 +412,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = F32E64032A5B10E40023AC5F;
 			packageReferences = (
@@ -411,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3402B442A61795300A84E3E /* GameScreen.strings in Resources */,
 				F3402AD72A5D6A2000A84E3E /* Colors.xcassets in Resources */,
 				F32E641C2A5B10E50023AC5F /* LaunchScreen.storyboard in Resources */,
 				F32E64192A5B10E50023AC5F /* Image.xcassets in Resources */,
@@ -471,8 +494,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				F32E641B2A5B10E50023AC5F /* Base */,
+				F3402B422A61794C00A84E3E /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F3402B462A61795300A84E3E /* GameScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3402B452A61795300A84E3E /* en */,
+				F3402B472A61795700A84E3E /* ru */,
+			);
+			name = GameScreen.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -482,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -542,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -31,7 +31,7 @@ class GameScreenView: UIView {
 	
 	private lazy var titleGameLabel: UILabel = {
 		let view = UILabel()
-		view.text = "2048"
+		view.text = R.string.gameScreen.title_game()
 		view.textColor = R.color.text()
 		view.textAlignment = .center
 		view.font = UIFont.systemFont(ofSize: 40, weight: .bold)
@@ -47,8 +47,8 @@ class GameScreenView: UIView {
 		return view
 	}()
 	
-	private lazy var scoreInformationLabel = ScoreBlockView(title: "SCORE")
-	private lazy var bestScoreInformationLabel = ScoreBlockView(title: "BEST SCORE")
+	private lazy var scoreInformationLabel = ScoreBlockView(title: R.string.gameScreen.title_score_block())
+	private lazy var bestScoreInformationLabel = ScoreBlockView(title: R.string.gameScreen.title_max_score_block())
 	
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
