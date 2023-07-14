@@ -22,15 +22,15 @@ class GameScreenViewController: UIViewController {
 	
 	override func loadView() {
 		view = ui
+		
+		ui.setScore(viewModel.fetchScore())
+		ui.setMaxScore(viewModel.fetchMaxScore())
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setHandlers()
 		createStartCells()
-		
-		ui.setScore(viewModel.fetchScore())
-		ui.setScore(viewModel.fetchMaxScore())
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

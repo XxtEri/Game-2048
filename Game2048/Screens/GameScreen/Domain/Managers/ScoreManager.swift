@@ -25,7 +25,7 @@ final class ScoreManager: ScoreManagerProtocol {
 	}
 	
 	func fetchMaxScore() -> Int {
-		UserDefaults.standard.integer(forKey: KeysTitle.maxScore)
+		return UserDefaults.standard.integer(forKey: KeysTitle.maxScore)
 	}
 	
 	func saveScore(_ score: Int) {
