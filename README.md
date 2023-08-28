@@ -8,7 +8,7 @@
 
 The project was implemented as part of participation in the SHIFT Intensive organized by CFT. The task was set to implement the project by trying something new. In my case, I tried a new architecture for me in practice
 
-The application consists of 1 screen:
+The application consists of:
 - Launch Screen **(Storyboard)**
 - Game Screen **(UIKit programmatically)**
 
