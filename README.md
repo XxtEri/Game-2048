@@ -20,7 +20,7 @@ The application consists of:
 
 ## 🧱 Architecture
 
-The Clean architecture approach was used
+The Clean Architecture approach was used
 
 ## 📱 Screenshots
 | Launch Screen | Game Screen |
