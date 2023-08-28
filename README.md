@@ -26,4 +26,3 @@ The Clean architecture approach was used
 | Launch Screen | Game Screen |
 | :------------:|:-----------: |
 | <img src="https://i.postimg.cc/59g53QPc/2023-08-28-17-20-26.png" width="250" height="540"> | <img src="https://i.postimg.cc/YS7jZb9d/2023-08-28-17-20-21.png" width="250" height="540"> |
-gm
